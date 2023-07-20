@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora</title>
+  <script>
+    function squareNumber(number) {
+      var result = number ** 2;
+      console.log("O resultado da quadratura do número " + number + " é " + result);
+      return result;
+    }
+
+    function halfNumber(number) {
+      var result = number / 2;
+      console.log("Metade de " + number + " é " + result + ".");
+      return result;
+    }
+
+    function percentOf(num1, num2) {
+      var percentage = (num1 / num2) * 100;
+      console.log(num1 + " é " + percentage + "% de " + num2);
+      return percentage;
+    }
+
+    function areaOfCircle(radius) {
+      var area = Math.PI * radius ** 2;
+      console.log("A área de um círculo com raio " + radius + " é " + area);
+      return area.toFixed(2);
+    }
+
+    function calculateOperations() {
+      var input = parseFloat(document.getElementById("numberInput").value);
+      var half = halfNumber(input);
+      var squared = squareNumber(half);
+      var area = areaOfCircle(squared);
+      var percentage = percentOf(area, squared);
+      document.getElementById("result").innerText = "Resultado final: " + percentage;
+    }
+  </script>
+</head>
+<body>
+  <h1>Calculadora</h1>
+  <label for="numberInput">Digite um número:</label>
+  <input type="text" id="numberInput">
+  <button onclick="calculateOperations()">Calcular</button>
+  <div id="result"></div>
+</body>
+</html>
